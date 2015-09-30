@@ -1,4 +1,5 @@
 /**
+ * Test
  * Diese Klasse präsentiert ein Polynom von einem beliebigen Grad mit
  * realen Koeffizienten.
  * <p>
