@@ -56,6 +56,15 @@ public class TestPolynom {
         assertEquals(59017.5, p.berechne(5), PRECISION);
         assertEquals(109017.5, p.berechne(-5), PRECISION);
     }
+    
+    // Hinzugefügt um calc(double[] xs) zu prüfen
+    @Test
+    public void testCalc() {
+    	Polynom p = new Polynom(5, 0, -2,  0, 9.5, -8, 5);
+    	double x[] = { 1, -1, 5, -5 };
+        double fx[] = { 9.5, 25.5, 59017.5, 109017.5 };
+        assertArrayEquals(fx, p.calc(x), PRECISION);
+    }
 
     @Test
     public void testAddition() {

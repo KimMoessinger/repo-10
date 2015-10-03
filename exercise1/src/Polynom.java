@@ -62,7 +62,28 @@ public class Polynom {
      * @return Wert an der Stelle x
      */
     public double berechne(double x) {
-        return 0.0;
+    	double fx = 0.0; // fx = y = ...
+    	
+    	// Erklärung Mathe: https://de.wikipedia.org/wiki/Ganzrationale_Funktion
+    	
+    	for(int exponent = 0; exponent <= getGrad(); exponent++) {
+    		double koeffizient = getKoeffizient(exponent);
+    		
+    		if(exponent == 0) {
+    			fx = koeffizient;
+    		} else {
+    			double basis = x;
+    			double potenz = 1;
+    			
+    			for(int k = 0; k < exponent; k++) {
+    				potenz *= basis;
+    			}
+    			
+    			fx += (koeffizient * potenz);
+    		}
+       	}
+    	
+    	return fx;
     }
 
     /**
@@ -72,7 +93,12 @@ public class Polynom {
      * @return Ergebnis
      */
     public double[] calc(double[] xs) {
-        return null;
+        double[] fxs = new double[xs.length];
+        
+        for(int i = 0; i < xs.length; i++) {
+        	fxs[i] = berechne(xs[i]);
+        }
+    	return fxs;
     }
 
     /**
