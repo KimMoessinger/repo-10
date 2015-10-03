@@ -30,6 +30,10 @@ public class TestPolynom {
         assertEquals(4, p1.getKoeffizient(0), PRECISION);
         assertEquals(3, p1.getKoeffizient(1), PRECISION);
         assertEquals(-1, p1.getKoeffizient(5), PRECISION);
+        
+        // Hinzugefügt um Randbedingung zu prüfen
+        assertEquals(-4, p1.getKoeffizient(8), PRECISION);
+        assertEquals(0, p1.getKoeffizient(9), PRECISION);
     }
 
     @Test

@@ -105,7 +105,17 @@ public class Polynom {
      *         Polynoms ist
      */
     public double getKoeffizient(int n) {
-        return 0;
+    	// Anzahl der Koeffizienten = Länge des Arrays
+    	int anzahlKoeffizienten = this.polynom.length;
+    	
+    	double koeffizient = 0.0;
+    	
+    	// Liegt n im Array? (Anmerkung: n darf auch nicht negativ sein.)
+    	if((n < anzahlKoeffizienten) && (n >= 0)) {
+    		koeffizient = this.polynom[n];	
+    	}
+    	
+    	return koeffizient;
     }
 
     /**
@@ -114,7 +124,17 @@ public class Polynom {
      * @return die Koeffizienten.
      */
     public double[] getKoeffizienten() {
-        return null;
+    	// Anzahl der Koeffizienten = Länge des Arrays
+    	int anzahlKoeffizienten = this.polynom.length;
+    	
+        double[] koeffizienten = new double[anzahlKoeffizienten];
+    	
+    	// Kopiere alle Werte
+    	for(int i = 0; i < anzahlKoeffizienten; i++) {
+    		koeffizienten[i] = this.polynom[i];
+       	}
+    	
+    	return koeffizienten;
     }
 
     /**
