@@ -26,6 +26,8 @@ public class Polynom {
      * Methoden und flüchte mit dem Schlauchboot, vielleicht finden
      * sie mich ja nicht....
      */
+	
+	private double[] polynom;
 
     /**
      * Erzeugt ein neues Polynom mit den gegebenen Koeffizienten.
@@ -37,6 +39,12 @@ public class Polynom {
      * @param a Koeffizienten des Polynoms
      */
     public Polynom(double... a) {
+    	this.polynom = new double[a.length];
+    	
+    	// Kopiere alle Werte
+    	for(int i = 0; i < a.length; i++) {
+    		this.polynom[i] = a[i];
+       	}
     }
 
     /**
@@ -44,6 +52,7 @@ public class Polynom {
      * 0 sind.
      */
     public Polynom() {
+    	this.polynom = new double[0];
     }
 
     /**
@@ -72,7 +81,21 @@ public class Polynom {
      * @return Grad des Polynoms, -1 für das Nullpolynom
      */
     public int getGrad() {
-        return -1;    }
+    	// Grad entspricht der Länge des Arrays bis zur Position
+    	// in der noch ein vernünftiger Wert (nicht 0) steht.
+    	
+    	// Initialisiere Rückgabewert mit -1, da Array ja auch keine
+    	// Werte enthalten kann.
+    	int grad = -1;
+    	
+    	for(int i = 0; i < this.polynom.length; i++) {
+    		if(this.polynom[i] != 0.0) {
+    			grad = i;
+    		}
+    	}
+    	
+    	return grad;
+    }
 
     /**
      * Liefert den n-ten Koeffizienten.
