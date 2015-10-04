@@ -1,4 +1,5 @@
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -70,24 +71,25 @@ public class TestPolynom {
     public void testAddition() {
         Polynom p1 = new Polynom(5, 4, -2,  3, 9.5, -8);
         Polynom p2 = new Polynom(3, 7,  6, -6, 0.0,  4, 7, 11);
-        Polynom pr = new Polynom(8, 11, 4, -3, 9.5, -4, 7, 11 );
+        Polynom pr = new Polynom(8, 11, 4, -3, 9.5, -4, 7, 11);
 
-
+        // Anmerkung: Benötigt zwingend die Methode equals(Object obj) 
         assertEquals(pr, p1.addiere(p2));
 
-
+        
         p1 = new Polynom(5, 4, -2,  3, 9.5, -8);
         p2 = new Polynom(3, 7,  6, -6, 0.0);
         pr = new Polynom(8, 11, 4, -3, 9.5, -8);
 
         assertEquals(pr, p1.addiere(p2));
 
+        
         p1 = new Polynom(5, 4, -2,  3, 9.5, -8);
         p2 = new Polynom();
 
         assertEquals(p1, p1.addiere(p2));
 
-
+        
         p1 = new Polynom();
         p2 = new Polynom(5, 4, -2,  3, 9.5, -8);
 
@@ -102,6 +104,7 @@ public class TestPolynom {
 
         assertEquals(pr, p1.subtrahiere(p2));
 
+        
         p1 = new Polynom(5, 4, -2,  3, 9.5, -8);
         p2 = new Polynom(3, 7,  6, -6, 0.0);
         pr = new Polynom(2, -3, -8, 9, 9.5, -8 );

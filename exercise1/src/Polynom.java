@@ -170,7 +170,28 @@ public class Polynom {
      * @return neues Polynom mit dem Ergebnis der Addition
      */
     public Polynom addiere(Polynom p) {
-        return null;
+        int laengeAktuellesPolynom = this.polynom.length;	
+        int laengeUebergebenesPolynom = p.getKoeffizienten().length;
+    	
+        double[] koeffizientenErgebnis;
+        
+        // Größeres Array ermitteln und neues Ergebnis-Array mit dieser Größe anlegen
+        if(laengeAktuellesPolynom <= laengeUebergebenesPolynom) {
+        	koeffizientenErgebnis = new double[laengeUebergebenesPolynom];
+        } else {
+        	koeffizientenErgebnis = new double[laengeAktuellesPolynom];
+        }
+        
+        for(int i = 0; i < koeffizientenErgebnis.length; i++) {
+        	double aktuellerKoeffizient = this.getKoeffizient(i);
+        	double uebergebenerKoeffizient = p.getKoeffizient(i);
+        	
+        	koeffizientenErgebnis[i] = aktuellerKoeffizient + uebergebenerKoeffizient;
+        }
+        
+        Polynom ergebnis = new Polynom(koeffizientenErgebnis);
+        
+    	return ergebnis;
     }
 
     /**
@@ -180,7 +201,28 @@ public class Polynom {
      * @return neues Polynom mit dem Ergebnis der Subtraktion
      */
     public Polynom subtrahiere(Polynom p) {
-        return null;
+    	int laengeAktuellesPolynom = this.polynom.length;	
+        int laengeUebergebenesPolynom = p.getKoeffizienten().length;
+    	
+        double[] koeffizientenErgebnis;
+        
+        // Größeres Array ermitteln und neues Ergebnis-Array mit dieser Größe anlegen
+        if(laengeAktuellesPolynom <= laengeUebergebenesPolynom) {
+        	koeffizientenErgebnis = new double[laengeUebergebenesPolynom];
+        } else {
+        	koeffizientenErgebnis = new double[laengeAktuellesPolynom];
+        }
+        
+        for(int i = 0; i < koeffizientenErgebnis.length; i++) {
+        	double aktuellerKoeffizient = this.getKoeffizient(i);
+        	double uebergebenerKoeffizient = p.getKoeffizient(i);
+        	
+        	koeffizientenErgebnis[i] = aktuellerKoeffizient - uebergebenerKoeffizient;
+        }
+        
+        Polynom ergebnis = new Polynom(koeffizientenErgebnis);
+        
+    	return ergebnis;
     }
 
     /**
@@ -214,7 +256,37 @@ public class Polynom {
      */
     @Override
     public boolean equals(Object obj) {
-        return false;
+    	boolean rueckgabewert;
+    	
+    	if(obj == this) {
+    		rueckgabewert = true;
+        } else if(obj == null) {
+        	rueckgabewert = false;
+        } else if(obj instanceof Polynom) {	
+        	Polynom uebergebenesPolynom = (Polynom)obj;
+        	
+        	int laengeAktuellesPolynom = this.polynom.length;	
+            int laengeUebergebenesPolynom = uebergebenesPolynom.getKoeffizienten().length;
+        	
+            if(laengeAktuellesPolynom != laengeUebergebenesPolynom) {
+            	rueckgabewert = false;
+            } else {
+            	rueckgabewert = true;
+            	
+            	for(int i = 0; i < laengeAktuellesPolynom; i++) {
+            		double aktuellerKoeffizient = this.getKoeffizient(i);
+            		double uebergebenerKoeffizient = uebergebenesPolynom.getKoeffizient(i);
+            		
+            		if(aktuellerKoeffizient != uebergebenerKoeffizient) {
+            			rueckgabewert = false;
+            		}
+            	}
+            }
+        } else {
+        	rueckgabewert = false;
+        }
+    	
+    	return rueckgabewert;
     }
 
     /**
