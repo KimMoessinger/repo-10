@@ -52,7 +52,7 @@ public class Polynom {
      * 0 sind.
      */
     public Polynom() {
-    	this.polynom = new double[0];
+    	this.polynom = new double[1];
     }
 
     /**
@@ -231,7 +231,21 @@ public class Polynom {
      * @return Ergebnis der Ableitung
      */
     public Polynom differenziere() {
-        return null;
+    	double[] koeffizientenErgebnis = new double[this.getGrad()];
+    	int koeffizientenErgebnisZaehler = 0;
+    	
+    	for(int i = 0; i <= this.getGrad(); i++) {
+    		if(i == 0) {
+    			// nichts tun!
+    		} else {
+    			koeffizientenErgebnis[koeffizientenErgebnisZaehler] = this.getKoeffizient(i) * i;
+    			koeffizientenErgebnisZaehler++;
+    		}
+    	}
+    	
+    	 Polynom ergebnis = new Polynom(koeffizientenErgebnis);
+         
+     	return ergebnis;
     }
 
     /**
@@ -265,8 +279,8 @@ public class Polynom {
         } else if(obj instanceof Polynom) {	
         	Polynom uebergebenesPolynom = (Polynom)obj;
         	
-        	int laengeAktuellesPolynom = this.polynom.length;	
-            int laengeUebergebenesPolynom = uebergebenesPolynom.getKoeffizienten().length;
+        	int laengeAktuellesPolynom = getGrad();	
+            int laengeUebergebenesPolynom = uebergebenesPolynom.getGrad();
         	
             if(laengeAktuellesPolynom != laengeUebergebenesPolynom) {
             	rueckgabewert = false;
