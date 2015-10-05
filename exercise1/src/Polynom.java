@@ -1,3 +1,6 @@
+import java.text.DecimalFormat;
+import java.util.*;
+
 /**
  * Test
  * Diese Klasse präsentiert ein Polynom von einem beliebigen Grad mit
@@ -316,6 +319,45 @@ public class Polynom {
      */
     @Override
     public String toString() {
-        return "";
+    	String ergebnis = "Grad ";
+    	
+    	ergebnis += getGrad() + ":  ";
+    	
+    	for(int i = getGrad(); i >= 0; i--) {
+    		double koeffizient = getKoeffizient(i);
+    		
+    		// Nullwerte ausschließen
+    		if(koeffizient != 0.0) {
+    			
+    			// Bei der ersten Zahl das Vorzeichen nicht formatieren
+    			if(i != getGrad()) {
+    				// Vorzeichen getrennt ausgeben - Bei negativen Wert die Zahl positiv machen
+    				if(koeffizient <= 0) {
+    					ergebnis += " - ";
+    					koeffizient = koeffizient * -1; // Zahl positiv machen
+    				} else {
+    					ergebnis += " + ";
+    				}
+    			}
+    			
+    			// Erklärung: http://javabeginners.de/Mathematisches/Dezimalzahl_formatieren.php
+    			DecimalFormat df = (DecimalFormat)DecimalFormat.getInstance(Locale.GERMAN);
+    			df.applyPattern( "#,#,#.#" );
+    			String zahlAlsString = df.format( koeffizient );
+
+    			switch(i) {
+    			case 0:
+    				ergebnis += zahlAlsString;
+    			break;
+    			case 1:
+    				ergebnis += zahlAlsString + "x";
+    			break;
+    			default:
+    				ergebnis += zahlAlsString + "x^" + i;
+    			}
+    		}	
+    	}
+    	
+        return ergebnis;
     }
 }

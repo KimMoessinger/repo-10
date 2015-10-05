@@ -151,6 +151,8 @@ public class TestPolynom {
     @Test
     public void testToString() {
         Polynom p = new Polynom(3, -2, 5, 0, -0.5, -4, 0, 0, -9);
+        
+        //System.out.println(p);
         assertEquals("Grad 8:  -9x^8 - 4x^5 - 0,5x^4 + 5x^2 - 2x + 3", p.toString());
     }
 }
