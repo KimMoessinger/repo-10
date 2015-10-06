@@ -257,7 +257,24 @@ public class Polynom {
      * @return Ergebnis der Integration.
      */
     public Polynom integriere() {
-        return null;
+    	double[] koeffizientenErgebnis = new double[this.getGrad() + 2];
+    	
+    	koeffizientenErgebnis[0] = 0;
+    	int koeffizientenErgebnisZaehler = 1;
+    	
+    	for(int i = 0; i <= this.getGrad(); i++) {
+    		// Teilen durch Null verhindern
+    		if(this.getKoeffizient(i) != 0) {
+    			koeffizientenErgebnis[koeffizientenErgebnisZaehler] = this.getKoeffizient(i) / (i + 1);
+    		} else {
+    			koeffizientenErgebnis[koeffizientenErgebnisZaehler] = 0;
+    		}
+    		koeffizientenErgebnisZaehler++;
+    	}
+    	
+    	 Polynom ergebnis = new Polynom(koeffizientenErgebnis);
+         
+     	return ergebnis;
     }
 
     /**

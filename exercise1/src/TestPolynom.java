@@ -136,6 +136,7 @@ public class TestPolynom {
         assertEquals(pr,  p1.differenziere());
 
         Polynom pi = new Polynom(0, 0, 0.5, -1, 2);
+        
         assertEquals(pi,  pr.integriere());
     }
 
