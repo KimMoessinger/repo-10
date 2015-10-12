@@ -1,8 +1,8 @@
 package de.hs_mannheim.tpe.gruppe10.exercise2;
 
 public class Rechteck extends Figur {
-	private double hoehe = 0;
-	private double breite = 0;
+	private double hoehe;
+	private double breite;
 	
 	public Rechteck(double hoehe, double breite) {
 		super(hoehe * breite);
