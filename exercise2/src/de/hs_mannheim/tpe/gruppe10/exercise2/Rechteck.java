@@ -4,7 +4,7 @@ public class Rechteck extends Figur {
 	private double hoehe = 0;
 	private double breite = 0;
 	
-	protected Rechteck(double hoehe, double breite) {
+	public Rechteck(double hoehe, double breite) {
 		super(hoehe * breite);
 		
 		this.hoehe = hoehe;
