@@ -25,7 +25,7 @@ public class Figur {
 	
 	/**
      * Erzeugt eine neue Fläche mit den übergebenen Werten.
-     * @param Fläche der einzelnen Figuren.
+     * @param flaeche Fläche der einzelnen Figuren.
      */
     
     protected Figur(double flaeche) {
@@ -42,6 +42,7 @@ public class Figur {
     
     /**
      * Gibt Fläche aus.
+     * @return die Fläche der Figur 
      */
     
     public double getFlaeche() {
